@@ -37,7 +37,7 @@ const Navbar = () => {
     }
 
     keepLogin()
-  }, []) 
+  }, [dispatch]) 
 
   const handleSignOut = () => {
     dispatch(setSignOut())
