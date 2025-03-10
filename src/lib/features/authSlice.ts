@@ -15,18 +15,25 @@ const initialState: IAuth = {
 }
 
 const authSlice = createSlice({
-    name: 'auth',
-    initialState,
-    reducers: {
-        setSignIn: (state, action) => {
-        console.log('CHECK ACTION SIGNIN', action)
-        return action.payload
-        },
-        setSignOut: (state) => {
-        return initialState
-        },
+  name: 'auth',
+  initialState,
+  reducers: {
+    setSignIn: (state, action) => {
+      console.log('CHECK ACTION SIGNIN', action)
+      state.id = action.payload.id
+      state.firstname = action.payload.firstname
+      state.lastname = action.payload.lastname
+      state.email = action.payload.email
     },
+    setSignOut: (state) => {
+      state.id = ''
+      state.firstname = ''
+      state.lastname = ''
+      state.email = ''
+    },
+  },
 })
+
 
 export const { setSignIn, setSignOut } = authSlice.actions
 export default authSlice.reducer
